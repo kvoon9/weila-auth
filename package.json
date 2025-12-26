@@ -1,7 +1,7 @@
 {
   "name": "weila-auth",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "A simple example library built by tsdown",
   "exports": {
@@ -16,7 +16,8 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "dev": "tsdown --watch"
+    "dev": "tsdown --watch",
+    "release": "npx bumpp && npm publish"
   },
   "devDependencies": {
     "@types/md5": "^2.3.6",
