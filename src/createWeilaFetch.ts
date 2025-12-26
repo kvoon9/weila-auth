@@ -9,7 +9,6 @@ import { getMd5Middle8Chars, pickWeilaData } from './utils'
 
 export function createWeilaFetch(options: CreateWeilaFetchOptions) {
   const {
-    appName,
     appId,
     appKey,
     baseURL,
@@ -23,7 +22,7 @@ export function createWeilaFetch(options: CreateWeilaFetchOptions) {
   const STORAGE_KEY_REFRESH_TOKEN = 'refresh_token'
   const STORAGE_KEY_EXPIRES_IN = 'expires_in'
   const STORAGE_KEY_LOGIN_TIME = 'login_time'
-  const STORAGE_KEY_UUID = `${appName}-uuid`
+  const STORAGE_KEY_UUID = 'uuid'
 
   let refreshPromise: Promise<void> | null = null
 
@@ -58,9 +57,10 @@ export function createWeilaFetch(options: CreateWeilaFetchOptions) {
       await storage.setItem(STORAGE_KEY_UUID, uuid)
     }
 
-    const token = await storage.getItem<string>(STORAGE_KEY_TOKEN)
+    const token = await storage.getItem<string >(STORAGE_KEY_TOKEN)
 
     const query: V2QueryParams = {
+      token,
       appid: appId,
       et,
       sign,

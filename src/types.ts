@@ -18,7 +18,6 @@ export interface RefreshTokenResult {
 }
 
 export interface CreateWeilaFetchOptions {
-  appName: string
   appId: string
   appKey: string
   baseURL?: string
@@ -33,5 +32,5 @@ export interface V2QueryParams {
   et: string
   sign: string
   uuid: string
-  token?: string
+  token?: string | null
 }
